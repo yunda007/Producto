@@ -18,6 +18,7 @@ router.get('/agregar/:id',async(req,res) =>{
     res.render('tienda/editar',product);
 });
 
+
 router.post('/edit',async(req,res) =>{
     const { id,nombre, precio, cantidad} = req.body
     const usua = await pool.query(`update productos set nombre='${nombre}', precio='${precio}', cantidad='${cantidad}' where id=${id}`);
@@ -39,5 +40,6 @@ router.get('/delete/:id',async(req,res)=>{
     const tienda = await pool.query('delete from productos where id=?',[id]);
     res.redirect('/tienda/agregar');
 });
+
 
 module.exports= router;

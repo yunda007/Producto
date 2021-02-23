@@ -35,6 +35,7 @@ app.use((req,res,next)=>{
 //rutas
 app.use(require('./routes'));
 app.use('/tienda',require('./routes/tienda'));
+app.use('/usuarios',require('./routes/usuarios'));
 
 //public
 app.unsubscribe(express.static(path.join(__dirname, 'public'))); 
